@@ -161,8 +161,7 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            /* Espacio para que el acento visual respire */
-            padding: 20px 20px 20px 0; 
+            padding: 20px 20px 20px 0;
         }
 
         /* Acento geométrico sólido (Diamante lateral) */
@@ -174,19 +173,17 @@
             left: 20px;
             background-color: var(--vivid-sky-blue);
             z-index: 0;
-            /* Corte asimétrico audaz pero limpio */
             clip-path: polygon(25px 0, 100% 0, calc(100% - 25px) 100%, 0 100%);
         }
 
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             z-index: 1;
             background-color: var(--federal-blue);
             border: 4px solid var(--pacific-cyan);
-            /* Sin bordes redondeados, mantenemos la rigidez de los cortes */
         }
 
         .video-container iframe {
@@ -223,13 +220,12 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 320px;
-            /* Cortes geométricos en las esquinas */
             clip-path: polygon(
-                0 0, 
-                calc(100% - 30px) 0, 
-                100% 30px, 
-                100% 100%, 
-                30px 100%, 
+                0 0,
+                calc(100% - 30px) 0,
+                100% 30px,
+                100% 100%,
+                30px 100%,
                 0 calc(100% - 30px)
             );
         }
@@ -309,7 +305,6 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             width: max-content;
-            /* Corte asimétrico audaz */
             clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
         }
 
@@ -348,13 +343,9 @@
             <div class="brand-logo">
                 <!-- Construcción del Isotipo en SVG para garantizar nitidez, proporciones y colores exactos -->
                 <svg class="diamond-isotype" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Faceta Superior Izquierda -->
                     <polygon points="50,0 50,50 0,50" fill="#47C8FD" />
-                    <!-- Faceta Superior Derecha -->
                     <polygon points="50,0 100,50 50,50" fill="#03AED2" />
-                    <!-- Faceta Inferior Izquierda -->
                     <polygon points="0,50 50,50 50,100" fill="#03AED2" />
-                    <!-- Faceta Inferior Derecha -->
                     <polygon points="100,50 50,50 50,100" fill="#47C8FD" />
                 </svg>
                 <div class="logotype">unitec</div>
@@ -367,7 +358,7 @@
             <p>Ecosistema de Aprendizaje UNITEC/CEUTEC. Plataforma asincrónica para docentes.</p>
         </section>
 
-        <!-- ========== SECCIÓN DE VIDEO (NUEVA) ========== -->
+        <!-- ========== SECCIÓN DE VIDEO ========== -->
         <section class="video-section">
             <div class="video-text">
                 <h2 class="video-title">¿Qué es el <br><span>Ecosistema</span> de Aprendizaje UNITEC/CEUTEC?</h2>
@@ -375,10 +366,8 @@
             </div>
             
             <div class="video-wrapper">
-                <!-- Geometría sólida decorativa de fondo -->
                 <div class="video-decorator"></div>
                 
-                <!-- Contenedor del reproductor -->
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/WVr14XkPbEc?si=QfAMAlkJeeCoP3-D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -396,37 +385,37 @@
                     <h2 class="session-title">El Ecosistema de Aprendizaje y el Nuevo Paradigma</h2>
                     <p class="session-desc">Comprende la filosofía del Ecosistema de Aprendizaje, interioriza el Retrato del Aprendiz y aplica el concepto de Las 3 Cs en tu práctica docente.</p>
                 </div>
-                <a href="https://capexfi25-30.netlify.app/ecosistemaunitec/sesion1/" target="_blank" class="btn-link">Ingresar al Módulo</a>
+                <a href="https://iedd.netlify.app/sesion1/" class="btn-link">Ingresar al Módulo</a>
             </article>
 
             <!-- Sesión 2 -->
             <article class="session-card">
                 <div>
                     <div class="session-number">Sesión 2</div>
-                    <h2 class="session-title">Definiendo "El Porqué" y "El Qué"</h2>
+                    <h2 class="session-title">Definiendo &quot;El Porqué&quot; y &quot;El Qué&quot;</h2>
                     <p class="session-desc">Taller de Construcción del Planner. Deconstrucción del sílabo, La Gran Idea y Preguntas de Encuadre para orientar la experiencia de aprendizaje.</p>
                 </div>
-                <a href="https://capexfi25-30.netlify.app/ecosistemaunitec/sesion2/" target="_blank" class="btn-link">Ingresar al Módulo</a>
+                <a href="https://iedd.netlify.app/sesion2/" class="btn-link">Ingresar al Módulo</a>
             </article>
 
             <!-- Sesión 3 -->
             <article class="session-card">
                 <div>
                     <div class="session-number">Sesión 3</div>
-                    <h2 class="session-title">Construyendo "La Evidencia"</h2>
+                    <h2 class="session-title">Construyendo &quot;La Evidencia&quot;</h2>
                     <p class="session-desc">Taller de Evaluación Auténtica y S.T.A.R. Feedback. Diseños GRASPS y cultura de retroalimentación para fortalecer el aprendizaje.</p>
                 </div>
-                <a href="https://capexfi25-30.netlify.app/ecosistemaunitec/sesion3/" target="_blank" class="btn-link">Ingresar al Módulo</a>
+                <a href="https://iedd.netlify.app/sesion3/" class="btn-link">Ingresar al Módulo</a>
             </article>
 
             <!-- Sesión 4 -->
             <article class="session-card">
                 <div>
                     <div class="session-number">Sesión 4</div>
-                    <h2 class="session-title">Planificando "El Cómo"</h2>
+                    <h2 class="session-title">Planificando &quot;El Cómo&quot;</h2>
                     <p class="session-desc">Secuencias de Aprendizaje (Connect, Construct, Contribute) y formación del Carácter en el Aula.</p>
                 </div>
-                <a href="https://capexfi25-30.netlify.app/ecosistemaunitec/sesion4/" target="_blank" class="btn-link">Ingresar al Módulo</a>
+                <a href="https://iedd.netlify.app/sesion4/" class="btn-link">Ingresar al Módulo</a>
             </article>
 
         </main>
