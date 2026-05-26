@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Sesión 1 | Entrenamiento Docente UNITEC</title>
 
-  <!-- Tipografía institucional UNITEC -->
+  <!-- Tipografía institucional: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" 
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -16,8 +20,9 @@
       --cian-pacifico: #03AED2;
       --azul-cielo: #47C8FD;
       --blanco: #ffffff;
-      --gris-claro: #f6f8fb;
+      --gris-fondo: #f6f8fb;
       --gris-texto: #4b5563;
+      --gris-linea: #dbe3ef;
     }
 
     * {
@@ -32,15 +37,15 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background: var(--gris-claro);
+      background: var(--gris-fondo);
       color: var(--azul-federal);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .diamond {
@@ -51,7 +56,7 @@
       clip-path: polygon(0 0, 100% 0, 100% 86%, 90% 100%, 0 100%);
     }
 
-    .navbar {
+    .site-nav {
       position: sticky;
       top: 0;
       z-index: 20;
@@ -70,14 +75,14 @@
       color: var(--blanco);
     }
 
-    .brand-mark {
+    .brand-isotipo {
       width: 34px;
       height: 34px;
       background: var(--azul-cielo);
       flex: 0 0 auto;
     }
 
-    .brand-name {
+    .brand-text {
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 800;
       letter-spacing: -1px;
@@ -97,37 +102,36 @@
       position: relative;
       background: var(--azul-federal);
       color: var(--blanco);
-      padding: 90px 6% 100px;
+      padding: 88px 6% 100px;
       border-bottom: 8px solid var(--cian-pacifico);
       overflow: hidden;
     }
 
-    .hero::before,
-    .hero::after {
-      content: "";
+    .hero-shape-one,
+    .hero-shape-two {
       position: absolute;
       width: 280px;
       height: 280px;
-      background: var(--azul-cielo);
       opacity: 0.1;
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      pointer-events: none;
     }
 
-    .hero::before {
-      top: -100px;
-      right: -80px;
+    .hero-shape-one {
+      background: var(--azul-cielo);
+      top: -110px;
+      right: -90px;
     }
 
-    .hero::after {
-      bottom: -140px;
-      left: -110px;
+    .hero-shape-two {
       background: var(--cian-pacifico);
+      bottom: -140px;
+      left: -120px;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
     }
 
@@ -158,12 +162,12 @@
     }
 
     .hero h1 {
-      font-size: clamp(3.2rem, 9vw, 6.8rem);
+      font-size: clamp(3.1rem, 9vw, 6.8rem);
       font-weight: 900;
       text-transform: uppercase;
       line-height: 0.95;
       letter-spacing: -3px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .hero h1 span {
@@ -172,7 +176,7 @@
 
     .hero h2 {
       display: inline-block;
-      font-size: clamp(1.1rem, 3vw, 2rem);
+      font-size: clamp(1.05rem, 3vw, 2rem);
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 4px;
@@ -190,7 +194,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 34px;
-      margin-bottom: 80px;
+      margin-bottom: 82px;
     }
 
     .card-wrap {
@@ -238,7 +242,7 @@
       display: grid;
       place-items: center;
       font-weight: 900;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       flex: 0 0 auto;
     }
 
@@ -272,15 +276,15 @@
       align-items: center;
       gap: 22px;
       padding-bottom: 24px;
-      border-bottom: 2px solid #dfe5ee;
+      border-bottom: 2px solid var(--gris-linea);
       margin-bottom: 42px;
     }
 
     .section-title .icon-diamond {
-      background: var(--azul-federal);
-      color: var(--blanco);
       width: 64px;
       height: 64px;
+      background: var(--azul-federal);
+      color: var(--blanco);
     }
 
     .section-title h2 {
@@ -308,7 +312,7 @@
 
     .resource {
       position: relative;
-      min-height: 300px;
+      min-height: 312px;
     }
 
     .resource-bg {
@@ -332,7 +336,7 @@
       z-index: 1;
       height: 100%;
       background: var(--blanco);
-      border: 1px solid #dfe5ee;
+      border: 1px solid var(--gris-linea);
       padding: 30px;
       transition: transform 0.25s ease;
       display: flex;
@@ -366,12 +370,12 @@
       color: var(--azul-cielo);
       display: grid;
       place-items: center;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 900;
     }
 
     .resource h3 {
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-weight: 900;
       text-transform: uppercase;
       line-height: 1.2;
@@ -403,8 +407,7 @@
       overflow: hidden;
     }
 
-    .footer::after {
-      content: "";
+    .footer-shape {
       position: absolute;
       right: -90px;
       bottom: -110px;
@@ -412,7 +415,6 @@
       height: 240px;
       background: var(--azul-cielo);
       opacity: 0.1;
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
 
     .footer-content {
@@ -446,7 +448,7 @@
       letter-spacing: 2px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .objectives,
       .resources {
         grid-template-columns: 1fr;
@@ -455,14 +457,10 @@
       .nav-label {
         display: none;
       }
-
-      .section-title {
-        align-items: flex-start;
-      }
     }
 
     @media (max-width: 640px) {
-      .navbar {
+      .site-nav {
         padding: 18px 5%;
       }
 
@@ -481,7 +479,7 @@
 
       .section-title {
         flex-direction: column;
-        text-align: left;
+        align-items: flex-start;
       }
 
       .footer-content {
@@ -498,16 +496,19 @@
 
 <body>
 
-  <nav class="navbar">
-    <a href="/" class="brand" aria-label="Volver al inicio">
-      <div class="brand-mark diamond"></div>
-      <div class="brand-name">unitec</div>
+  <nav class="site-nav">
+    <a href="../" class="brand" aria-label="Volver a Entrenamiento Docente">
+      <div class="brand-isotipo diamond" aria-hidden="true"></div>
+      <div class="brand-text">unitec</div>
     </a>
 
     <div class="nav-label">Entrenamiento Docente</div>
   </nav>
 
   <header class="hero">
+    <div class="hero-shape-one diamond" aria-hidden="true"></div>
+    <div class="hero-shape-two diamond" aria-hidden="true"></div>
+
     <div class="hero-content">
       <div class="badges">
         <span class="badge badge-primary cut">Programa de Capacitación</span>
@@ -528,10 +529,10 @@
     <section class="objectives" aria-label="Objetivos de la sesión">
 
       <article class="card-wrap">
-        <div class="card-offset cut"></div>
+        <div class="card-offset cut" aria-hidden="true"></div>
         <div class="objective-card highlight cut">
           <div class="objective-head">
-            <div class="icon-diamond diamond">◎</div>
+            <div class="icon-diamond diamond" aria-hidden="true">◎</div>
             <h3>Objetivo General</h3>
           </div>
           <p>
@@ -543,10 +544,10 @@
       </article>
 
       <article class="card-wrap">
-        <div class="card-offset cyan cut"></div>
+        <div class="card-offset cyan cut" aria-hidden="true"></div>
         <div class="objective-card cut">
           <div class="objective-head">
-            <div class="icon-diamond diamond">◇</div>
+            <div class="icon-diamond diamond" aria-hidden="true">◇</div>
             <h3>Objetivo de la Sesión</h3>
           </div>
           <p>
@@ -561,7 +562,7 @@
 
     <section aria-label="Recursos de la Sesión 1">
       <div class="section-title">
-        <div class="icon-diamond diamond">◆</div>
+        <div class="icon-diamond diamond" aria-hidden="true">◆</div>
         <div>
           <h2>Recursos de la Sesión 1</h2>
           <p>Módulos interactivos y documentación</p>
@@ -570,11 +571,11 @@
 
       <div class="resources">
 
-        <a class="resource" href="/sesion1/definicionaprendizaje/">
-          <div class="resource-bg cut"></div>
+        <a class="resource" href="./definicionaprendizaje/">
+          <div class="resource-bg cut" aria-hidden="true"></div>
           <article class="resource-card cut">
             <span class="number">01</span>
-            <div class="resource-icon diamond">A</div>
+            <div class="resource-icon diamond" aria-hidden="true">A</div>
             <h3>Definición del Aprendizaje</h3>
             <p>
               Exploración de cómo el Ecosistema de Aprendizaje redefine el acto de aprender
@@ -584,11 +585,11 @@
           </article>
         </a>
 
-        <a class="resource" href="/sesion1/retratounitec/">
-          <div class="resource-bg cut"></div>
+        <a class="resource" href="./retratounitec/">
+          <div class="resource-bg cut" aria-hidden="true"></div>
           <article class="resource-card cut">
             <span class="number">02</span>
-            <div class="resource-icon diamond">R</div>
+            <div class="resource-icon diamond" aria-hidden="true">R</div>
             <h3>Retrato de UNITEC y Principios</h3>
             <p>
               Las capacidades humanas que buscamos formar en nuestros estudiantes y su relación
@@ -598,11 +599,11 @@
           </article>
         </a>
 
-        <a class="resource" href="/sesion1/transicion/">
-          <div class="resource-bg cut"></div>
+        <a class="resource" href="./transicion/">
+          <div class="resource-bg cut" aria-hidden="true"></div>
           <article class="resource-card cut">
             <span class="number">03</span>
-            <div class="resource-icon diamond">T</div>
+            <div class="resource-icon diamond" aria-hidden="true">T</div>
             <h3>Transición y Aprender a Aprender</h3>
             <p>
               El paso del modelo tradicional al ecosistema, centrado en la capacidad de
@@ -612,11 +613,11 @@
           </article>
         </a>
 
-        <a class="resource" href="/sesion1/transformacion/">
-          <div class="resource-bg cut"></div>
+        <a class="resource" href="./transformacion/">
+          <div class="resource-bg cut" aria-hidden="true"></div>
           <article class="resource-card cut">
             <span class="number">04</span>
-            <div class="resource-icon diamond">G</div>
+            <div class="resource-icon diamond" aria-hidden="true">G</div>
             <h3>Ejemplo de Transformación</h3>
             <p>
               Caso de estudio: de la evaluación memorística al desempeño auténtico mediante
@@ -626,11 +627,11 @@
           </article>
         </a>
 
-        <a class="resource" href="/sesion1/piloto/">
-          <div class="resource-bg cut"></div>
+        <a class="resource" href="./piloto/">
+          <div class="resource-bg cut" aria-hidden="true"></div>
           <article class="resource-card cut">
             <span class="number">05</span>
-            <div class="resource-icon diamond">P</div>
+            <div class="resource-icon diamond" aria-hidden="true">P</div>
             <h3>Micropiloto de Implementación</h3>
             <p>
               Guía estratégica para iniciar pruebas controladas de esta metodología en el aula.
@@ -639,11 +640,11 @@
           </article>
         </a>
 
-        <a class="resource" href="/sesion1/herramientas/">
-          <div class="resource-bg cut"></div>
+        <a class="resource" href="./herramientas/">
+          <div class="resource-bg cut" aria-hidden="true"></div>
           <article class="resource-card cut">
             <span class="number">06</span>
-            <div class="resource-icon diamond">H</div>
+            <div class="resource-icon diamond" aria-hidden="true">H</div>
             <h3>Herramientas Disponibles</h3>
             <p>
               Formatos, rúbricas y plantillas S.T.A.R. listas para descargar y aplicar en tus cursos.
@@ -658,10 +659,12 @@
   </main>
 
   <footer class="footer">
+    <div class="footer-shape diamond" aria-hidden="true"></div>
+
     <div class="footer-content">
       <div class="brand">
-        <div class="brand-mark diamond"></div>
-        <div class="brand-name">unitec</div>
+        <div class="brand-isotipo diamond" aria-hidden="true"></div>
+        <div class="brand-text">unitec</div>
       </div>
 
       <div class="footer-text">
@@ -673,7 +676,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      console.log("Sesión 1 cargada correctamente.");
+      console.log("Sesión 1 cargada correctamente en GitHub Pages.");
     });
   </script>
 
