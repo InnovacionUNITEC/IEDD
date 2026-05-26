@@ -1,1 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrenamiento Docente | Sesión 1 - Ecosistema de Aprendizaje UNITEC</title>
 
+  <!-- Tipografía Institucional: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --federal-blue: #06065C;
+      --pacific-cyan: #03AED2;
+      --vivid-sky-blue: #47C8FD;
+      --white: #FFFFFF;
+      --light-bg: #F8FAFC;
+      --soft-line: #E2E8F0;
+      --text-muted: #475569;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--federal-blue);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .diamond {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .cut-card {
+      clip-path: polygon(
+        0 0,
+        calc(100% - 34px) 0,
+        100% 34px,
+        100% 100%,
+        34px 100%,
+        0 calc(100% - 34px)
+      );
+    }
+
+    .cut-label {
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      background-color: var(--federal-blue);
+      border-bottom: 4px solid var(--pacific-cyan);
+    }
+
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 1.35rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      background-color: var(--vivid-sky-blue);
+    }
+
+    .brand-name {
+      color: var(--white);
+      font-size: clamp(1.8rem, 4vw, 2.45rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+    }
+
+    .nav-kicker {
+      display: none;
+      color: var(--vivid-sky-blue);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 768px) {
+      .nav-kicker {
+        display: block;
+      }
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--federal-blue);
+      color: var(--white);
+      border-bottom: 8px solid var(--pacific-cyan);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      opacity: 0.08;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: -150px;
+      right: -80px;
+      background-color: var(--vivid-sky-blue);
+    }
+
+    .hero::after {
+      bottom: -180px;
+      left: -120px;
+      background-color: var(--pacific-cyan);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 5rem;
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      color: var(--vivid-sky-blue);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .breadcrumb a {
+      border-bottom: 2px solid var(--pacific-cyan);
+      padding-bottom: 0.15rem;
+    }
+
+    .hero-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .label-primary,
+    .label-secondary {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0.45rem 1rem;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .label-primary {
+      background-color: var(--vivid-sky-blue);
+      color: var(--federal-blue);
+    }
+
+    .label-secondary {
+      border: 2px solid var(--pacific-cyan);
+      color: var(--pacific-cyan);
+    }
+
+    .hero-title {
+      max-width: 850px;
+      font-size: clamp(2.8rem, 8vw, 6.7rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title span {
+      color: var(--pacific-cyan);
+    }
+
+    .hero-subtitle {
+      max-width: 850px;
+      display: inline-block;
+      padding-bottom: 0.7rem;
+      border-bottom: 4px solid var(--vivid-sky-blue);
+      color: var(--white);
+      font-size: clamp(1.05rem, 2.6vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 5rem;
+    }
+
+    .objectives {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    @media (min-width: 900px) {
+      .objectives {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .objective-wrap {
+      position: relative;
+      min-height: 100%;
+    }
+
+    .objective-offset {
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      background-color: var(--federal-blue);
+      z-index: 0;
+    }
+
+    .objective-wrap:nth-child(2) .objective-offset {
+      background-color: var(--pacific-cyan);
+    }
+
+    .objective-card {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: clamp(1.7rem, 4vw, 2.5rem);
+      border: 2px solid var(--federal-blue);
+      background-color: var(--white);
+    }
+
+    .objective-card.primary {
+      background-color: var(--pacific-cyan);
+      border: 0;
+    }
+
+    .objective-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .objective-icon {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: grid;
+      place-items: center;
+      background-color: var(--federal-blue);
+      color: var(--vivid-sky-blue);
+    }
+
+    .objective-card.primary .objective-icon {
+      background-color: var(--white);
+      color: var(--pacific-cyan);
+    }
+
+    .objective-icon svg {
+      width: 27px;
+      height: 27px;
+      stroke: currentColor;
+      stroke-width: 2.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .objective-title {
+      color: var(--federal-blue);
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .objective-text {
+      border-left: 4px solid var(--pacific-cyan);
+      padding-left: 1rem;
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      font-weight: 500;
+    }
+
+    .objective-card.primary .objective-text {
+      border-left-color: var(--white);
+      color: var(--federal-blue);
+      font-weight: 600;
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding-bottom: 1.6rem;
+      margin-bottom: 2.8rem;
+      border-bottom: 2px solid var(--soft-line);
+    }
+
+    @media (min-width: 768px) {
+      .section-head {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .section-icon {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      background-color: var(--federal-blue);
+      color: var(--white);
+      flex: 0 0 66px;
+    }
+
+    .section-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--federal-blue);
+    }
+
+    .section-subtitle {
+      margin-top: 0.35rem;
+      color: var(--pacific-cyan);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 720px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .resource-link {
+      position: relative;
+      display: block;
+      min-height: 100%;
+    }
+
+    .resource-offset {
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      z-index: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .resource-link:nth-child(3n+1) .resource-offset {
+      background-color: var(--pacific-cyan);
+    }
+
+    .resource-link:nth-child(3n+2) .resource-offset {
+      background-color: var(--federal-blue);
+    }
+
+    .resource-link:nth-child(3n+3) .resource-offset {
+      background-color: var(--vivid-sky-blue);
+    }
+
+    .resource-card {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      padding: 2rem;
+      background-color: var(--white);
+      border: 1px solid var(--soft-line);
+      color: var(--federal-blue);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .resource-link:hover .resource-card {
+      transform: translate(-6px, -6px);
+      border-color: var(--federal-blue);
+    }
+
+    .resource-link:hover .resource-offset {
+      transform: translate(4px, 4px);
+    }
+
+    .resource-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.7rem;
+      color: var(--pacific-cyan);
+      opacity: 0.22;
+      font-size: 2.7rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .resource-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 1.7rem;
+      color: var(--federal-blue);
+    }
+
+    .resource-icon svg {
+      width: 44px;
+      height: 44px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .resource-title {
+      margin-bottom: 0.9rem;
+      color: var(--federal-blue);
+      font-size: 1.18rem;
+      font-weight: 900;
+      line-height: 1.28;
+      text-transform: uppercase;
+    }
+
+    .resource-text {
+      flex: 1;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .resource-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-top: 1.6rem;
+      color: var(--pacific-cyan);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .resource-cta svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--federal-blue);
+      color: var(--white);
+      border-top: 8px solid var(--pacific-cyan);
+    }
+
+    .footer::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -130px;
+      width: 280px;
+      height: 280px;
+      background-color: var(--vivid-sky-blue);
+      opacity: 0.08;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        text-align: right;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-mark {
+      width: 30px;
+      height: 30px;
+      background-color: var(--pacific-cyan);
+    }
+
+    .footer-name {
+      font-size: 1.7rem;
+      font-weight: 800;
+      text-transform: lowercase;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtitle {
+      color: var(--vivid-sky-blue);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 520px) {
+      .nav-inner,
+      .hero-inner,
+      .main,
+      .footer-inner {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .resource-card,
+      .objective-card {
+        padding: 1.55rem;
+      }
+
+      .hero-title {
+        font-size: 2.65rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../" class="brand" aria-label="Volver a Entrenamiento Docente">
+        <span class="brand-mark diamond" aria-hidden="true"></span>
+        <span class="brand-name">unitec</span>
+      </a>
+
+      <div class="nav-kicker">Collective Growth System</div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="breadcrumb">
+        <a href="../">Entrenamiento Docente</a>
+        <span>/</span>
+        <span>Sesión 1</span>
+      </div>
+
+      <div class="hero-labels">
+        <span class="label-primary cut-label">Programa de Capacitación</span>
+        <span class="label-secondary cut-label">Sesión 1</span>
+      </div>
+
+      <h1 class="hero-title">Ecosistema de <span>Aprendizaje</span></h1>
+      <p class="hero-subtitle">Nuevo paradigma para la práctica docente UNITEC/CEUTEC</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="objectives" aria-label="Objetivos de la sesión">
+      <article class="objective-wrap">
+        <div class="objective-offset cut-card"></div>
+        <div class="objective-card primary cut-card">
+          <div class="objective-head">
+            <div class="objective-icon diamond" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="8"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 2v4"></path>
+                <path d="M12 18v4"></path>
+                <path d="M2 12h4"></path>
+                <path d="M18 12h4"></path>
+              </svg>
+            </div>
+            <h2 class="objective-title">Objetivo General</h2>
+          </div>
+          <p class="objective-text">
+            Brindar a los docentes de UNITEC/CEUTEC herramientas prácticas para comprender, aplicar y adaptar el Ecosistema de Aprendizaje en sus cursos, fortaleciendo experiencias formativas centradas en el estudiante.
+          </p>
+        </div>
+      </article>
+
+      <article class="objective-wrap">
+        <div class="objective-offset cut-card"></div>
+        <div class="objective-card cut-card">
+          <div class="objective-head">
+            <div class="objective-icon diamond" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3l7 4v5c0 5-3 8-7 9-4-1-7-4-7-9V7l7-4z"></path>
+                <path d="M9 12l2 2 4-5"></path>
+              </svg>
+            </div>
+            <h2 class="objective-title">Objetivo de la Sesión</h2>
+          </div>
+          <p class="objective-text">
+            Comprender la filosofía del Ecosistema de Aprendizaje, interiorizar el Retrato del Aprendiz y contrastar el modelo tradicional con el nuevo ecosistema, utilizando la metacognición <strong>(Learning to Learn)</strong> y un caso de transformación aplicado.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section aria-label="Recursos de la sesión 1">
+      <div class="section-head">
+        <div class="section-icon diamond" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3l9 5-9 5-9-5 9-5z"></path>
+            <path d="M3 12l9 5 9-5"></path>
+            <path d="M3 16l9 5 9-5"></path>
+          </svg>
+        </div>
+
+        <div>
+          <h2 class="section-title">Recursos de la Sesión 1</h2>
+          <p class="section-subtitle">Módulos interactivos y documentación</p>
+        </div>
+      </div>
+
+      <div class="resources-grid">
+        <a href="definicionaprendizaje/" class="resource-link">
+          <div class="resource-offset cut-card"></div>
+          <article class="resource-card cut-card">
+            <span class="resource-number">01</span>
+            <div class="resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path>
+              </svg>
+            </div>
+            <h3 class="resource-title">Definición del Aprendizaje</h3>
+            <p class="resource-text">
+              Exploración de cómo el Ecosistema de Aprendizaje redefine el acto de aprender más allá de lo transaccional.
+            </p>
+            <span class="resource-cta">
+              Ingresar al Módulo
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </article>
+        </a>
+
+        <a href="retratounitec/" class="resource-link">
+          <div class="resource-offset cut-card"></div>
+          <article class="resource-card cut-card">
+            <span class="resource-number">02</span>
+            <div class="resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="resource-title">Retrato de UNITEC y Principios</h3>
+            <p class="resource-text">
+              Las capacidades humanas que buscamos formar en nuestros estudiantes y su relación con la cultura del aula.
+            </p>
+            <span class="resource-cta">
+              Ingresar al Módulo
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </article>
+        </a>
+
+        <a href="transicion/" class="resource-link">
+          <div class="resource-offset cut-card"></div>
+          <article class="resource-card cut-card">
+            <span class="resource-number">03</span>
+            <div class="resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 7h14l-4-4"></path>
+                <path d="M17 17H3l4 4"></path>
+              </svg>
+            </div>
+            <h3 class="resource-title">Transición y Aprender a Aprender</h3>
+            <p class="resource-text">
+              El paso del modelo tradicional al ecosistema, centrado en la capacidad de Learning to Learn.
+            </p>
+            <span class="resource-cta">
+              Ingresar al Módulo
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </article>
+        </a>
+
+        <a href="transformacion/" class="resource-link">
+          <div class="resource-offset cut-card"></div>
+          <article class="resource-card cut-card">
+            <span class="resource-number">04</span>
+            <div class="resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.3-3.3a6 6 0 0 1-7.9 7.9L6.5 20.5a2.1 2.1 0 0 1-3-3l6.6-6.6a6 6 0 0 1 7.9-7.9l-3.3 3.3z"></path>
+              </svg>
+            </div>
+            <h3 class="resource-title">Ejemplo de Transformación</h3>
+            <p class="resource-text">
+              Caso de estudio: de la evaluación memorística al desempeño auténtico mediante diseño GRASPS.
+            </p>
+            <span class="resource-cta">
+              Ingresar al Módulo
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </article>
+        </a>
+
+        <a href="piloto/" class="resource-link">
+          <div class="resource-offset cut-card"></div>
+          <article class="resource-card cut-card">
+            <span class="resource-number">05</span>
+            <div class="resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-4.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-5.05 11a22 22 0 0 1-4.95 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+            </div>
+            <h3 class="resource-title">Micropiloto de Implementación</h3>
+            <p class="resource-text">
+              Guía estratégica para iniciar pruebas controladas de la metodología dentro del aula.
+            </p>
+            <span class="resource-cta">
+              Ingresar al Módulo
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </article>
+        </a>
+
+        <a href="herramientas/" class="resource-link">
+          <div class="resource-offset cut-card"></div>
+          <article class="resource-card cut-card">
+            <span class="resource-number">06</span>
+            <div class="resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l2.6-2.6a5.5 5.5 0 0 1-7 7L7 20.9a2 2 0 0 1-2.8-2.8l6.2-6.2a5.5 5.5 0 0 1 7-7l-2.7 2.4z"></path>
+              </svg>
+            </div>
+            <h3 class="resource-title">Herramientas Disponibles</h3>
+            <p class="resource-text">
+              Formatos, rúbricas y plantillas S.T.A.R. listas para descargar y aplicar en tus cursos.
+            </p>
+            <span class="resource-cta">
+              Ingresar al Módulo
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="M13 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </article>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-mark diamond" aria-hidden="true"></span>
+        <span class="footer-name">unitec</span>
+      </div>
+
+      <div>
+        <p class="footer-title">Entrenamiento Docente</p>
+        <p class="footer-subtitle">Visión UNITEC 2030 | Collective Growth System</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
